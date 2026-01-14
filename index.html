@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ถึงตะวัน 🤍</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-family:"Poppins",sans-serif;
+  background:
+    radial-gradient(circle at top,#ffffff,#e0e7ff),
+    linear-gradient(135deg,#fdfbfb,#dbeafe);
+  overflow:hidden;
+}
+
+/* ===== หัวใจลอย ===== */
+.heart-float{
+  position:fixed;
+  bottom:-40px;
+  font-size:20px;
+  animation:floatUp linear infinite;
+  opacity:.7;
+}
+@keyframes floatUp{
+  to{transform:translateY(-120vh); opacity:0}
+}
+
+/* ===== การ์ด ===== */
+.card{
+  width:390px;
+  max-width:94%;
+  background:#fff;
+  border-radius:38px;
+  position:relative;
+  overflow:hidden;
+  animation:fadeUp 1.3s ease;
+  box-shadow:0 40px 100px rgba(0,0,0,.35);
+}
+
+/* ===== ขอบเรืองแสง ===== */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  background:linear-gradient(135deg,#6366f1,#ec4899,#22d3ee);
+  border-radius:40px;
+  z-index:-1;
+  animation:borderGlow 6s linear infinite;
+}
+@keyframes borderGlow{
+  to{filter:hue-rotate(360deg)}
+}
+
+/* ===== รูป ===== */
+.photos{
+  position:relative;
+  height:320px;
+}
+
+.photo{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  animation:slide 14s infinite;
+  filter:brightness(.95);
+}
+.photo.one{
+  background-image:url("https://scontent.fbkk22-2.fna.fbcdn.net/v/t39.30808-6/480597087_627510233024983_6991038553437207249_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=upbbUs3hFPUQ7kNvwFFOb33&_nc_oc=AdniqewjwII03tinjhnwtAqTq1kFNe7wFG2ruIg-sf7WRwTEQ24iMPL2fGbNYiz-99r3S1np6BP5tCcP95jk8iY2&_nc_zt=23&_nc_ht=scontent.fbkk22-2.fna&_nc_gid=2x0TXjDOR_Ahk-QjRabdzQ&oh=00_Afoo3cfmtShOAZPd7jWnu-Fo_0jH5QGyaIFskaJZREQtPQ&oe=696D3844");
+}
+.photo.two{
+  background-image:url("https://scontent.fbkk22-1.fna.fbcdn.net/v/t39.30808-6/480771117_627510189691654_4634066533285612943_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_ohc=yY6gtE1-iagQ7kNvwHvc-d9&_nc_oc=Adkzh0iE6jY6BKqwhpNirWL7R9WJNJKChB-Jsjcs54rAaU4A_HrGAQCcoWV2N3mKrZR_FyJEK70JxEe7cJ8Js_Zk&_nc_zt=23&_nc_ht=scontent.fbkk22-1.fna&_nc_gid=mdqnPMJwJfz_BRhnN-hIbA&oh=00_AfpCFyoFjmz5ZlFtm-1bkiVcezuRxF9cPUcSGHYLA1DUNw&oe=696D1EC6");
+  animation-delay:7s;
+}
+@keyframes slide{
+  0%{opacity:0; transform:scale(1.1)}
+  12%{opacity:1; transform:scale(1)}
+  45%{opacity:1}
+  55%{opacity:0}
+}
+
+/* ===== เนื้อหา ===== */
+.content{
+  padding:30px 26px 34px;
+  text-align:center;
+}
+
+p{
+  margin:0 0 14px;
+  font-size:17px;
+  line-height:1.9;
+  color:#374151;
+  opacity:0;
+  transform:translateY(16px);
+  animation:textUp .9s ease forwards;
+}
+
+.t1{animation-delay:1.2s}
+.t2{animation-delay:2.6s}
+.t3{animation-delay:4s}
+.t4{animation-delay:5.4s}
+.t5{animation-delay:6.8s}
+
+strong{
+  font-size:20px;
+  color:#4f46e5;
+}
+
+/* ===== หัวใจกลาง ===== */
+.heart{
+  font-size:42px;
+  margin:16px 0 24px;
+  opacity:0;
+  animation:heartBeat 1.4s infinite;
+  animation-delay:8s;
+  animation-fill-mode:forwards;
+}
+@keyframes heartBeat{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.35)}
+  100%{transform:scale(1)}
+}
+
+/* ===== ปุ่ม ===== */
+.actions{
+  display:flex;
+  gap:14px;
+  opacity:0;
+  animation:textUp .9s ease forwards;
+  animation-delay:9s;
+}
+
+button{
+  flex:1;
+  border:none;
+  padding:16px;
+  border-radius:24px;
+  font-size:15px;
+  font-family:inherit;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.yes{
+  background:linear-gradient(135deg,#6366f1,#ec4899);
+  color:#fff;
+  box-shadow:0 16px 34px rgba(236,72,153,.45);
+}
+
+.no{
+  background:#f3f4f6;
+}
+
+button:hover{transform:translateY(-2px)}
+button:active{transform:scale(.94)}
+
+/* ===== ผลลัพธ์ ===== */
+.result{
+  position:absolute;
+  inset:0;
+  background:rgba(255,255,255,.97);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:32px;
+  opacity:0;
+  pointer-events:none;
+  transition:.6s;
+}
+
+.result.show{
+  opacity:1;
+  pointer-events:auto;
+}
+
+.result p{
+  font-size:20px;
+  line-height:2;
+}
+
+/* ===== animation ===== */
+@keyframes fadeUp{
+  from{opacity:0; transform:translateY(40px)}
+  to{opacity:1; transform:translateY(0)}
+}
+@keyframes textUp{
+  to{opacity:1; transform:translateY(0)}
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <div class="photos">
+    <div class="photo one"></div>
+    <div class="photo two"></div>
+  </div>
+
+  <div class="content">
+    <p class="t1">ขอโทษนะตะวัน…</p>
+    <p class="t2">มีนอาจทำให้ตะวันเสียใจ<br>และทำพลาดไปหลายอย่าง</p>
+    <p class="t3">แต่มีนอยากให้ตะวันรู้ไว้ว่า</p>
+    <p class="t4"><strong>มีนรักตะวันจริง ๆ<br>อยากกลับมาคุยกันเหมือนเดิม</strong></p>
+    <p class="t5">ปลดบล็อคไอจีให้หน่อย<br>สิตัวเอง🤍</p>
+
+    <div class="heart">🤍</div>
+
+    <div class="actions">
+      <button class="yes" onclick="yes()">ตกลง</button>
+      <button class="no" onclick="no()">ยังไม่พร้อมแต่รักอยู่</button>
+    </div>
+  </div>
+
+  <div class="result" id="result">
+    <p id="msg"></p>
+  </div>
+</div>
+
+<script>
+function yes(){
+  show("ขอบคุณนะตะวัน 🤍\nมีนสัญญาจะดูแลหัวใจนี้ให้ดีที่สุด");
+  confetti();
+}
+function no(){
+  show("ไม่เป็นไรเลยนะ 🤍\nมีนรอได้เสมอ");
+}
+function show(text){
+  document.getElementById("msg").innerText=text;
+  document.getElementById("result").classList.add("show");
+}
+
+/* ===== หัวใจลอย ===== */
+setInterval(()=>{
+  const h=document.createElement("div");
+  h.className="heart-float";
+  h.innerText="🤍";
+  h.style.left=Math.random()*100+"vw";
+  h.style.animationDuration=4+Math.random()*4+"s";
+  document.body.appendChild(h);
+  setTimeout(()=>h.remove(),8000);
+},500);
+
+/* ===== confetti ===== */
+function confetti(){
+  for(let i=0;i<40;i++){
+    const c=document.createElement("div");
+    c.className="heart-float";
+    c.innerText="💖";
+    c.style.left=Math.random()*100+"vw";
+    c.style.fontSize=14+Math.random()*20+"px";
+    c.style.animationDuration=3+Math.random()*3+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),6000);
+  }
+}
+</script>
+
+</body>
+</html>
